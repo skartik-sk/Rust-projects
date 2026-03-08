@@ -85,7 +85,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Listerner Log {:?}", listener);
     loop {
         let (socket, _) = listener.accept().await?;
-
+        println!("Socket log {:?}", socket);
         tokio::spawn(async move {
             if let Err(e) = handle_client(socket).await {
                 println!("Error: {:?}", e);
