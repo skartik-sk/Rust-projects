@@ -19,7 +19,7 @@ async fn handle_client(stream: TcpStream) -> Result<(), Box<dyn std::error::Erro
             break;
         }
 
-        println!("CLIENT: {}", line.trim());
+        // println!("CLIENT: {}", line.trim());
 
         match line.trim() {
             cmd if cmd.starts_with("HELO") => {
@@ -82,7 +82,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let listener = TcpListener::bind("127.0.0.1:2525").await?;
 
     println!("SMTP Server running on port 2525");
-
+    println!("Listerner Log {:?}", listener);
     loop {
         let (socket, _) = listener.accept().await?;
 
